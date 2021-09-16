@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Total display</title>
+</head>
+
+<style>
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	
+	/* .container{ */
+	/* 	background-color: #c0c0c0; */
+		
+	/* } */
+	
+	.Navbar{
+		
+		background-color: black;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+	
+	.Navbar-fluid , .Navbar-header, .Nav{
+		
+		display: flex;
+	}
+	
+	.Navbar .Nav li{
+		
+		list-style-type: none;
+	}
+	
+	.Nav .link{
+		display: flex;
+		text-decoration: none;
+		padding: 20px;
+		color: white;
+		text-transform: uppercase;
+	}
+	
+		/* sous-menu*/
+
+.Navbar ul ul a{
+	
+	text-decoration: none;
+	padding: 15px 33px;
+	display: block;
+	color: #fff;
+}
+
+.Navbar ul ul a:hover{
+	
+	background: blue;
+	
+}
+
+.Navbar ul{
+	
+	position: relative;
+}
+
+.Navbar ul ul{
+	
+	position: absolute;
+	background: #000;
+	visibility: hidden;
+}
+
+.Navbar li:hover ul{
+	
+	visibility: visible;
+}
+	
+	
+	.btn-log-out{
+	
+	width: 80px;
+	height: 30px;
+	margin-top: 12px;
+	color: white;
+	background: #FF0000;
+	border-radius: 8px;
+}
+
+.btn-log-out:hover{
+	
+		font-style: italic;
+	}
+	
+	.link , .Navbar-brand{
+		text-transform: uppercase;
+	}
+	
+	.Nav .link:hover{
+		background-color: blue;
+	}
+	
+	
+	.Navbar-header{
+		background-color: blue;
+	}
+	
+	.Navbar-header .Navbar-brand{
+		display: flex;
+		text-decoration: none;
+		padding: 20px;
+		color: white;
+	}
+	
+
+	.prodDataTitle{
+		
+		padding-left: 150px;
+		padding-right: 20px;
+	}
+	
+	.prodData{
+		
+		color: blue;
+	}
+	
+	.quantityTitle{
+	
+		margin: 0 0 0 150px;
+		font-weight: bold;
+	}
+	 
+	
+	.btn{
+		
+		width: 110px;
+		height: 25px;
+		background-color: rgb(0, 128, 255);
+		color: white; 
+		border-radius: 10px;
+		margin-left: 50px;
+	}
+	.btn:hover{
+		font-style: italic; 
+	}
+	
+	.submit{
+		
+		margin-left:  650px;
+		width: 150px;
+		height: 30px;
+		color: blue;
+		border-radius: 5px;
+		text-transform: uppercase;
+	}
+	
+	.submit:hover{
+		
+		background-color: #0080ff;
+		color: white;
+	}
+	
+.welcome{
+	
+	display: flex;
+	text-decoration: none;
+	padding: 10px;
+	margin-left: 450px;
+	margin-right: 20px;
+}
+
+.logout{
+	
+	display: flex;
+	text-decoration: none;
+	padding: 20px;
+	color: white;
+	background: red;
+	margin-left: 150px;
+}
+
+</style>
+
+<body class="homeContainer">
+	
+	<div th:insert="userHeader :: userbar"></div> <br> 
+	
+	<form method="post" th:action="@{/addToCart/{productId}(productId = ${product.productId})}">
+	
+		<table>
+		
+			<tr> 
+				<td rowspan="9">
+					<img alt="Genereic placeholder thumbnail" height="300" width="320" th:src="@{/images/{id}.jpg(id = ${product.productId})}"> 
+				</td>
+			</tr>
+			
+			<tr> 
+				<td class="prodDataTitle">Product Id</td>
+				<td th:text="${product.productId}" class="prodData"></td>
+			</tr>
+		
+			<tr> 
+				<td class="prodDataTitle">Category</td>
+				<td th:text="${product.categoryId}" class="prodData"></td>
+			</tr>
+			
+			<tr> 
+				<td class="prodDataTitle">Product Name</td>
+				<td th:text="${product.productName}" class="prodData"></td>
+			</tr>
+			
+			<tr> 
+				<td class="prodDataTitle">Product Price</td>
+				<td th:text="${product.price} + ' $'" class="prodData"></td>
+			</tr>
+			
+			<tr> 
+				<td class="prodDataTitle">Product Stock</td>
+				<td th:text="${product.stock}" class="prodData"></td>
+			</tr>
+			
+			<tr> 
+				<td class="prodDataTitle">Supplier</td>
+				<td th:text="${product.supplierId}" class="prodData"></td>
+			</tr>
+			
+			<tr> 
+				<td class="prodDataTitle">Product Desc</td>
+				<td th:text="${product.productDescription}" class="prodData"></td>
+			</tr>
+		
+			
+			<tr> 
+				<td style="color: blue;" > <span class="quantityTitle">Quantity:</span>
+				
+					<select th:name="quantity" class="quantity">
+						<option th:value="1">1</option>
+						<option th:value="2">2</option>
+						<option th:value="3">3</option>
+						<option th:value="4">4</option>
+						<option th:value="5">5</option>
+						<option th:value="6">6</option>
+						<option th:value="7">7</option>
+						<option th:value="8">8</option>
+						<option th:value="9">9</option>
+						<option th:value="10">10</option>
+						<option th:value="11">11</option>
+						<option th:value="12">12</option>
+						<option th:value="13">13</option>
+						<option th:value="14">14</option>
+						<option th:value="15">15</option>
+<!-- 						<option th:value="16">16</option> -->
+<!-- 						<option th:value="17">17</option> -->
+<!-- 						<option th:value="18">18</option> -->
+<!-- 						<option th:value="19">19</option> -->
+<!-- 						<option th:value="20">20</option> -->
+					</select>
+				
+				</td>
+				
+				<td><input type="submit" value="ADD TO CART" class="btn btn-success"></td>
+			</tr>
+		
+		</table>
+	
+	
+	</form>
+
+</body>
+</html>

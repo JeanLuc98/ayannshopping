@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="fashion.css">
+<title>Payment</title>
+</head>
+<body>
+
+	<div th:insert="userHeader :: userbar"></div> <br>
+	
+	<form method="post" th:action="@{/receipt}"> 
+	
+	
+		<table border="1" style="margin: 0 auto;" class="tablePay" >
+				
+				 <tr class="titleList" style="background-color: #408080;">
+					 <td colspan="2" align="center" class="titlePay">Payment Detail</td>
+				 </tr>
+	           
+	             <tr style="background-color: skyblue;">
+	                 <td colspan="2" align="center"> 
+                 		<input type="radio" name="btnRD" value="cc" required="required">Credit Card &nbsp;
+                 		<input type="radio" name="btnRD" value="cod" required="required">Cash on Delivery
+	                 </td>
+	             </tr>
+				
+	             
+	             <tr class="warning1"> 
+	             	<td >Card Number</td>
+	             	<td > <input type="text" name="cardno" class="input"> </td>
+	             </tr>
+	             
+	             <tr class="warning1"> 
+	             	<td > Valid<input type="text" name="valid" class="valid-cvv"> </td>
+	             	<td > CVV<input type="text" name="CVV" class="valid-cvv"> </td>
+	             </tr>
+	             
+	              <tr class="bottomName"> 
+	              <td >Name</td>
+	             	<td ><input type="text" name="name" class="input" th:value="${userConnectedFullName}" readonly="readonly"> </td>
+	             </tr>
+	             
+	              <tr class="success" > 
+	             	<td colspan="2" align="center"><input type="submit" value="Pay" class="btn-pay"> </td>
+	             </tr>
+	             
+	           
+	        </table>
+
+	</form>
+
+</body>
+</html>

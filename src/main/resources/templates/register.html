@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="fashion.css">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<title>Register</title>
+</head>
+
+<style>
+		.colR{
+			
+			margin-top: -20px;
+		}
+		
+		.icon{
+		
+			margin-left: 20px;
+		}
+</style>
+
+<body class="log-reg">
+
+	<div th:insert="header :: bar"></div>
+
+<div class="container">
+<div class="row justify-content-center">
+           <div class="col-md-8">
+               <div class="card">
+                   <div class="card-header">Register</div>
+                   <div class="card-body">
+
+                       <form class="form-horizontal" method="post" th:action="@{/success}" th:object="${user}"
+                       			enctype="multipart/form-data">
+
+						<div class="form-group">
+                               <label for="username" class="cols-sm-2 control-label">Username</label>
+                               <div class="cols-sm-10">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                                       <input type="text" th:field="*{username}" class="form-control" name="username" id="username" 
+                                       placeholder="Enter your Username" minlength="2" maxlength="10" required/>
+                                   </div>
+                               </div>
+                           </div>
+
+                 
+                           <div class="form-group">
+                               <label for="email" class="cols-sm-2 control-label">Email</label>
+                               <div class="cols-sm-10">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                       <input type="text" th:field="*{email}" class="form-control" name="email" id="email" 
+                                       placeholder="Enter your Email" required="required"/>
+                                   </div>
+                               </div>
+                           </div>
+                           
+                           <div class="form-group">
+                               <label for="password" class="cols-sm-2 control-label">Password</label>
+                               <div class="cols-sm-10">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                       <input type="password" th:field="*{password}" class="form-control" name="password" id="password" 
+                                       placeholder="Enter your Password" minlength="6" maxlength="20" required="required"/>
+                                   </div>
+                               </div>
+                           </div>
+                           
+                           <div class="form-group"> 
+ 								<label for="role" class="cols-sm-2 control-label">Role</label> 
+								<div class="cols-sm-10 colR">
+									<select class="selectField" th:name="role" th:field="*{role}" required="required">
+										<option value="0" label="---select your role---"></option>
+										<option value="user">User</option>
+									</select>
+								</div>
+							</div>
+                           
+                           <div class="form-group">
+                               <label for="customName" class="cols-sm-2 control-label">Customer Name</label>
+                               <div class="cols-sm-10">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                                       <input type="text" th:field="*{customerName}" class="form-control" name="customName" id="customName" 
+                                       placeholder="Enter Customer Name" minlength="2" maxlength="120" required="required"/>
+                                   </div>
+                               </div>
+                           </div>
+                           
+                            <div class="form-group">
+                               <label for="customAddr" class="cols-sm-2 control-label">Customer Addr</label>
+                               <div class="cols-sm-10">
+                                   <div class="input-group">
+                                       <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                                       <input type="text" th:field="*{customerAddr}" class="form-control" name="customAddr" id="customAddr" 
+                                       placeholder="Enter Customer Address" 
+                                       minlength="2" maxlength="120" required="required"/>
+                                   </div>
+                               </div>
+                           </div>
+                           
+                           <div class="form-group"> 
+ 								<label for="userIcon" class="cols-sm-2 control-label">Profile Image</label> 
+								<input type="file" th:field="*{userIcon}" class="icon"  id="userIcon" 
+								name="userIcon" required="required"> 
+							</div>
+                           
+                           <div class="form-group ">
+<!--                                         <button type="submit" class="btn btn-primary btn-lg btn-block ">Register</button> -->
+                               <input class="btn btn-primary btn-lg btn-block " type="submit" th:value="Register">
+                           </div>
+                           <div class="login-register">
+                               <h5><a th:href="@{/login}">Login</a></h5>
+                           </div>
+                       </form>
+                   </div>
+
+               </div>
+           </div>
+      </div>
+</div>
+
+</body>
+</html>

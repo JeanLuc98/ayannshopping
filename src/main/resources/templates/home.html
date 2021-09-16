@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="fashion.css">
+<title>Ayann Shopping</title>
+</head>
+
+<style>
+
+ 	.slider{ 
+		
+		width: 1000px; 
+ 		overflow: hidden; 
+ 		margin: 150px auto; 
+		
+ 	} 
+
+ 	.slides{
+		
+ 		width: calc(1000px * 6);
+ 		animation: glisse 20s infinite; 
+ 	}
+	
+	.slide{
+		
+		float: left;
+	}
+	
+ 	@keyframes glisse{ 
+	
+ 		0%{ 
+ 			transform: translateX(0); 
+ 		} 
+		
+ 		17%{ 
+ 			transform: translateX(-1000px); 
+ 		} 
+ 		
+ 		34%{ 
+ 			transform: translateX(-2000px); 
+ 		} 
+		
+ 		51%{ 
+ 			transform: translateX(-3000px); 
+ 		} 
+ 		
+ 		68%{ 
+ 			transform: translateX(-4000px); 
+ 		} 
+ 		
+ 		85%{ 
+ 			transform: translateX(-5000px); 
+ 		} 
+		
+ 		100%{ 
+ 			transform: translateX(-6000px); 
+ 		} 
+	
+ 	} 
+	
+</style>
+
+<body class="homeContainer">
+
+	<div class="container">
+		
+		<div th:replace="header :: bar"></div>
+		
+		<h2 class="center_title">AYANN SHOPPING</h2>
+		
+<!-- 		<div class="slider"> -->
+						
+<!-- 			<div class="slides"> -->
+			
+				
+<!-- 				<div class="slide"> -->
+<!-- 					<img alt="T-shirt" th:src="@{/images/img1.jpg}" > -->
+<!-- 				</div> -->
+				
+				
+<!-- 				<div class="slide"> -->
+<!-- 					<img alt="T-shirt" th:src="@{/images/img2.jpg}" > -->
+<!-- 				</div> -->
+				
+				
+<!-- 				<div class="slide"> -->
+<!-- 					<img alt="T-shirt" th:src="@{/images/img3.jpg}" > -->
+<!-- 				</div> -->
+				
+<!-- 				<div class="slide"> -->
+<!-- 					<img alt="T-shirt" th:src="@{/images/img4.jpg}" > -->
+<!-- 				</div> -->
+				
+<!-- 				<div class="slide"> -->
+<!-- 					<img alt="Nike Airfox" th:src="@{/images/airfox.jpg}" > -->
+<!-- 				</div> -->
+				
+<!-- 				<div class="slide"> -->
+<!-- 					<img alt="Nike Sneakers" th:src="@{/images/sneakers.jpg}" > -->
+<!-- 				</div> -->
+				
+<!-- 			</div> -->
+			
+<!-- 		</div> -->
+		
+	</div>
+
+</body>
+</html>

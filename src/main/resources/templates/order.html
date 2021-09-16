@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="fashion.css">
+<title>Order-Detail</title>
+</head>
+
+<style>
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	
+	/* .container{ */
+	/* 	background-color: #c0c0c0; */
+		
+	/* } */
+	
+	.Navbar{
+		
+		background-color: black;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+	
+	.Navbar-fluid , .Navbar-header, .Nav{
+		
+		display: flex;
+	}
+	
+	.Navbar .Nav li{
+		
+		list-style-type: none;
+	}
+	
+	.Nav .link{
+		display: flex;
+		text-decoration: none;
+		padding: 20px;
+		color: white;
+		text-transform: uppercase;
+	}
+	
+	.link , .Navbar-brand{
+		text-transform: uppercase;
+	}
+	
+	.Nav .link:hover{
+		background-color: blue;
+		color:white;
+
+	}
+	
+	
+	.Navbar-header{
+		background-color: blue;
+	}
+	
+	.Navbar-header .Navbar-brand{
+		display: flex;
+		text-decoration: none;
+		padding: 20px;
+		color: white;
+	}
+	
+	.titleList{
+		background: skyblue;
+	}
+	
+	.titleListItem{
+		text-transform: uppercase;
+		font-size: 15px;
+		font-weight: bold;	
+	}
+	
+	.table{
+	
+	width:80%;
+/* 	border-spacing: inherit; */
+	border-collapse: collapse;
+ 	border: hidden; 
+		
+}
+
+.quantity{
+	
+	width: 65px;
+	margin-left: 40px;
+	text-align: center;
+}
+
+.info{
+	
+	background: #79F8F8;
+}
+
+.info-bas{
+	
+	background-color: skyblue; 
+}
+
+.table th, .table td{
+	
+	padding: 5px;
+}
+
+.en-tete{
+	
+	color: blue;
+}
+
+.btn-up{
+
+	width: 150px;
+	height: 25px;
+	margin-left: 10px;
+	background: #007FFF;
+	color: white;
+	border-radius: 10px;
+	text-transform: uppercase; 
+	
+}
+.btn-up:hover{
+	font-style: italic; 
+}
+
+.btn-modif, .btn-confirm{
+
+	text-decoration: none;
+	width: 150px;
+	padding:4px 18px;
+	background: #01796F;
+	color: white;
+	border: 10px;
+	border-radius: 10px;
+}
+
+
+.btn-modif:hover, .btn-confirm:hover {
+	
+	background: #386F48;
+	font-style: italic; 
+}
+
+</style>
+
+<body>
+
+	<div th:insert="userHeader :: userbar"></div> <br>
+	
+	<form method="post" th:action="@{/updateAddr}"> 
+	
+	
+		<table border="1" style="margin: 0 auto;" class="table">
+				
+				 <tr class="titleList">
+					 <td colspan="5" align="center" class="titleListItem">Order Confirm</td>
+				 </tr>
+	           
+	             <tr>
+	                 <th class="en-tete">Product Id</th>
+	                 <th class="en-tete">Product Name</th>
+	                 <th class="en-tete">Quantity</th>
+	                 <th class="en-tete">Price</th>
+	                 <th class="en-tete">SubTotal</th>
+	             </tr>
+				
+				
+				<tr class="info" th:each="cartItem:${cartItemList}">
+				
+	                <td th:text="${cartItem.productId}"></td>
+	                <td th:text="${cartItem.productName}"></td>
+					<td th:text="${cartItem.quantity}"></td>
+					<td th:text="${cartItem.totalPrice} + ' $'"></td>
+					<td th:text="${cartItem.totalPrice * cartItem.quantity} + ' $'"></td>
+	             </tr>
+	             
+	             <tr class="warning"> 
+	             	<td colspan="4" style="color: blue;">Total Purchase Amount</td>
+	             	<td colspan="1" th:text="${grandTotal} + ' $'" style="color: #FF0921;"></td>
+	             </tr>
+	             
+<!-- 	             <tr class="warning titleList">  -->
+<!-- 	             	<td colspan="5" align="center" class="titleListItem">Shipping Address</td> -->
+<!-- 	             </tr> -->
+	             
+<!-- 	             <tr class="warning">  -->
+<!-- 	             	<td>Address</td> -->
+<!-- 	             	<td colspan="3" align="left"> <textarea rows="1" cols="32" name="address" th:text="${address}"></textarea> </td> -->
+<!-- 	             	<td align="center"> <input type="submit" class="btn btn-success btn-up"  value="Update Address"> </td> -->
+<!-- 	             </tr> -->
+	             
+<!-- 	              <tr class="warning">  -->
+<!-- 	             	<td colspan="5" ></td> -->
+<!-- 	             	<td></td> -->
+<!-- 	             </tr> -->
+	             
+	              <tr class="info-bas" align="center"> 
+	             	<td colspan="2" style="padding: 10px">
+	             		<a th:href="@{/cart}" class="btn-modif">Modify Cart</a>
+	             	</td>
+	             	
+	             	<td colspan="3" align="center" style="padding: 10px">
+	             		<a th:href="@{/payment}" class="btn btn-success btn-confirm">Order Confirm</a>
+	             	</td>
+	             </tr>
+	           
+	        </table>
+
+	</form>
+
+</body>
+</html>

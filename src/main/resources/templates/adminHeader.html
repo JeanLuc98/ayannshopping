@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- <link rel="stylesheet" type="text/css" href="fashion.css"> -->
+<title></title>
+</head>
+<body class="container">
+
+	<div th:fragment="adminbar">
+	<nav class="Navbar">
+		
+<!-- 		<div class="Navbar-header"> -->
+<!-- 					<a class="Navbar-brand" th:href="@{/home}">Fashion world</a> -->
+<!-- 				</div> -->
+		
+			<div class="Navbar-fluid">
+			
+				<ul class="Nav Navbar-nav">
+					
+					<li><a class="link homelink" th:href="@{/adminhome}">home</a></li>
+					<li><a class="link" th:href="@{/category}">manage category</a></li>	
+					<li><a class="link" th:href="@{/product}">manage product</a></li>	
+					<li class="welcome">
+							<span class="profile-ava iconImg"> 
+								<img alt="" th:src="@{/favicon.ico/icons/{username}.jpg(username = ${userConnectedName})}" 
+									height="35" width="35" style="border-radius: 20px;">
+							</span> &nbsp;
+							<span style="text-transform:lowercase; color: #00FF00; padding-top: 7px;"> 
+								[[${#httpServletRequest.remoteUser}]]
+							</span>
+						</li>
+<!-- 					<li><a class="logout log" th:href="@{/logout}">Logout</a></li> -->
+				</ul>
+				
+				<a th:href="@{/logout}"><button class="btn-log-out">Logout</button></a>
+			
+			</div>
+		
+		</nav>
+     </div>
+</body>
+</html>

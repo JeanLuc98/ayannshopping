@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" >
+<head>
+<meta charset="UTF-8">
+<!-- <link rel="stylesheet" type="text/css" href="fashion.css"> -->
+<title></title>
+</head>
+
+<body class="container">
+
+	<div th:fragment="userbar">
+	<nav class="Navbar">
+		
+<!-- 		<div class="Navbar-header"> -->
+<!-- 					<a class="Navbar-brand" th:href="@{/home}">Fashion world</a> -->
+<!-- 				</div> -->
+		
+			<div class="Navbar-fluid">
+			
+				<ul class="Nav Navbar-nav">
+					
+					<li><a class="link homelink" th:href="@{/userhome}">home</a></li>
+					<li><a class="link" th:href="@{/displayProducts}">category <span class="caret"></span> </a> 
+					
+							<ul>
+								<li><a class="lien" th:href="@{/displayProducts}">Men's</a></li>
+								<li><a class="lien" th:href="@{/displayProducts}">Women's</a></li>
+								<li><a class="lien" th:href="@{/displayProducts}">Kid's</a></li>
+							</ul>
+					</li>	
+					<li><a class="link" th:href="@{/contact}">contact us</a></li>
+					<li><a class="link" th:href="@{/about}">about us</a></li>	
+					<li><a class="link" th:href="@{/cart}">cart</a></li>	
+<!-- 					<li class="welcome">Welcome: &nbsp; -->
+<!-- 						<span style="text-transform: uppercase; color: #00FF00;">  -->
+<!-- 							[[${#httpServletRequest.remoteUser}]] -->
+<!-- 						</span> -->
+<!-- 					</li> -->
+					
+						<li class="welcome">
+							<span class="profile-ava iconImg"> 
+								<img alt="" th:src="@{/favicon.ico/icons/{username}.jpg(username = ${userConnectedName})}" 
+									height="35" width="35" style="border-radius: 20px;">
+							</span> &nbsp;
+							<span style="text-transform: lowercase; color: #00FF00; padding-top: 7px;"> 
+								[[${#httpServletRequest.remoteUser}]]
+							</span>
+						</li>
+
+<!-- 					<li ><a class="logout" th:href="@{/logout}"> <button class="logout">Logout</button></a></li> -->
+				</ul>
+				
+					<a th:href="@{/logout}"><button class="btn-log-out">Logout</button></a>
+				
+			</div>
+		
+		</nav>
+     </div>
+</body>
+</html>

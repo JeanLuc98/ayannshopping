@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<!-- <link rel="stylesheet" type="text/css" href="fashion.css"> -->
+<title>Header</title>
+</head>
+<body class="container">
+
+	<div th:fragment="bar">
+	<nav class="Navbar">
+		
+			<div class="Navbar-fluid">
+			
+<!-- 				<div class="Navbar-header"> -->
+<!-- 					<a class="Navbar-brand" th:href="@{/home}">Fashion world</a> -->
+<!-- 				</div> -->
+				
+			
+					
+					<ul class="Nav Navbar-nav">
+						<li><a class="link homelink" th:href="@{/}">home</a></li>
+						<li><a class="link" th:href="@{/login}">login</a></li>
+						<li><a class="link" th:href="@{/register}">register</a></li>
+						<li><a class="link" th:href="@{/contactus}">contact us</a></li>
+						<li><a class="link" th:href="@{/aboutus}">about us</a></li>	
+					</ul>
+				
+			
+				
+<!-- 				<div sec:authorize="isAuthenticated()"> -->
+				
+<!-- 					<div sec:authorize="hasRole('admin')"> -->
+<!-- 						<ul class="Nav Navbar-nav"> -->
+<!-- 							<li><a class="link homelink" th:href="@{/adminhome}">home</a></li> -->
+<!-- 							<li><a class="link" th:href="@{/product}">manage product</a></li>	 -->
+<!-- 							<li><a class="link" th:href="@{/category}">manage category</a></li>	 -->
+<!-- 							<li><a class="link" th:href="@{/displayProducts}">product catalog</a></li>	 -->
+<!-- 							<li><a class="link" th:href="@{/cart}">cart</a></li> -->
+<!-- 							<li class="welcome">Welcome: &nbsp; <span style="text-transform: uppercase; color: blue;">  -->
+<!-- 									[[${#httpServletRequest.remoteUser}]]</span></li> -->
+<!-- 							<li><a class="logout" th:href="@{/logout}">Logout</a></li> -->
+<!-- 						</ul> -->
+<!-- 					</div> -->
+					
+<!-- 					<div sec:authorize="hasRole('user')"> -->
+<!-- 						<ul class="Nav Navbar-nav"> -->
+<!-- 							<li><a class="link homelink" th:href="@{/userhome}">home</a></li> -->
+							
+<!-- 							<li class="dropdown"><a class="link dropdown-toggle"data-toggle="dropdown">category<span class="drop"></span></a> -->
+<!-- 								<ul class="dropdown-menu"> -->
+<!-- 									<li><a class="link" th:href="@{/displayProducts}">men's</a></li>	 -->
+<!-- 									<li><a class="link" th:href="@{/displayProducts}">women's</a></li>	 -->
+<!-- 									<li><a class="link" th:href="@{/displayProducts}">kid's</a></li>	 -->
+<!-- 								</ul> -->
+<!-- 							</li> -->
+							
+<!-- 							<li><a class="link" th:href="@{/contactus}">contact us</a></li> -->
+<!-- 							<li><a class="link" th:href="@{/aboutus}">about us</a></li>	 -->
+<!-- 							<li><a class="link" th:href="@{/cart}">cart</a></li> -->
+<!-- 							<li class="welcome">Welcome: &nbsp; <span style="text-transform: uppercase; color: blue;">  -->
+<!-- 									[[${#httpServletRequest.remoteUser}]]</span></li> -->
+<!-- 							<li><a class="logout" th:href="@{/logout}">Logout</a></li> -->
+<!-- 						</ul> -->
+<!-- 					</div> -->
+					
+<!-- 				</div> -->
+				
+<!-- 				<div sec:authorize="isAuthenticated()"> -->
+<!-- 					<li class="welcome">Welcome: &nbsp; <span style="text-transform: uppercase; color: blue;">  -->
+<!-- 					[[${#httpServletRequest.remoteUser}]]</span></li> -->
+<!-- 					<li><a class="logout" th:href="@{/logout}">Logout</a></li> -->
+<!-- 				</div> -->
+				
+<!-- 				<ul class="Nav Navbar-nav"> -->
+					
+<!-- 					<li><a class="link homelink" th:href="@{/}">home</a></li> -->
+<!-- 					<li><a class="link" th:href="@{/login}">login</a></li> -->
+<!-- 					<li><a class="link" th:href="@{/register}">register</a></li> -->
+<!-- 					<li><a class="link" th:href="@{/contactus}">contact us</a></li> -->
+<!-- 					<li><a class="link" th:href="@{/aboutus}">about us</a></li>	 -->
+<!-- 					<li><a class="link" th:href="@{/product}">manage product</a></li>	 -->
+<!-- 					<li><a class="link" th:href="@{/category}">manage category</a></li>	 -->
+<!-- 					<li><a class="link" th:href="@{/displayProducts}">product catalog</a></li>	 -->
+<!-- 					<li><a class="link" th:href="@{/cart}">cart</a></li> -->
+							
+<!-- 				</ul> -->
+			
+			</div>
+		
+		</nav>
+     </div>
+</body>
+</html>

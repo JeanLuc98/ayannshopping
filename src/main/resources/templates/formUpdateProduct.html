@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Product</title>
+</head>
+
+	<style>
+	
+		*{
+		margin: 0;
+		padding: 0;
+	}
+	
+	/* .container{ */
+	/* 	background-color: #c0c0c0; */
+		
+	/* } */
+	
+	.Navbar{
+		
+		background-color: black;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+	
+	.Navbar-fluid , .Navbar-header, .Nav{
+		
+		display: flex;
+	}
+	
+	.Navbar .Nav li{
+		
+		list-style-type: none;
+	}
+	
+	.Nav .link{
+		display: flex;
+		text-decoration: none;
+		padding: 20px;
+		color: white;
+		text-transform: uppercase;
+	}
+	
+	.link , .Navbar-brand{
+		text-transform: uppercase;
+	}
+	
+	.Nav .link:hover{
+		color: blue;
+	}
+	
+	
+	.Navbar-header{
+		background-color: blue;
+	}
+	
+	.Navbar-header .Navbar-brand{
+		display: flex;
+		text-decoration: none;
+		padding: 20px;
+		color: white;
+	}
+	
+	.btn-log-out{
+	
+	width: 80px;
+	height: 30px;
+	margin-top: 12px;
+	color: white;
+	background: #FF0000;
+	border-radius: 8px;
+}
+
+.btn-log-out:hover{
+	
+		font-style: italic;
+	}
+	
+.welcome{
+	
+		display: flex;
+		text-decoration: none;
+		padding: 10px;
+		margin-left: 450px;
+		margin-right: 20px;
+	}
+	
+	.center_title{
+		
+		margin-top: 150px;
+		text-align: center;
+		color: fuchsia;
+	}
+
+	body .catg{
+	
+		text-align: center;
+		text-transform: uppercase;
+		color: blue;
+		margin-bottom: 15px;
+}
+
+	.catId, .catName, .catDesc{
+		 
+		justify-content: center;
+		align-items: center;
+		margin: 0 130px 20px 130px;
+		padding: 15px;
+		background-color: #D3D3D3;
+		border: 1;
+		height: 15px;
+	}
+
+	
+	.catLabel{
+		
+		margin-left: 0;
+		font-weight: bold;
+	}
+	
+	.form-controls{
+		
+		width: 250px;
+		height: 20px;
+		margin-left: 105px;
+	}
+	
+	.selection{
+	
+	margin-left: 135px;
+	height: 20px;
+	}
+	
+	.prodName, .prodStock{
+		
+		margin-left: 101px;
+	}
+
+	.priceInput, .prodDescInput{
+		
+		margin-left: 105px;
+	}
+	
+	.supplierInput{
+		
+		margin-left: 137px;
+	}
+	
+	.formId{
+		border-style: ridge;
+	}
+	
+	.form{
+		margin-left: 105px;
+	}
+	
+	
+	
+	.submit{
+		
+		margin-left:  650px;
+		width: 150px;
+		height: 30px;
+		color: blue;
+		border-radius: 5px;
+		text-transform: uppercase;
+	}
+	
+	.submit:hover{
+		
+		background-color: #0080ff;
+		color: white;
+	}
+
+	</style>
+
+<body>
+	
+	<div th:insert="adminHeader :: adminbar"></div> 
+	
+	<h2 class="catg">Update Product</h2>
+	
+	<form  method="post" th:action="@{/insertProduct}" th:object="${product}" enctype="multipart/form-data">
+	
+		<input type="hidden" th:field="*{productId}">
+	
+		<div class="catName">
+			<label for="productCatg" class="catLabel">Category
+			
+				<select name="selection"  class="selection" th:field="*{categoryId}">
+					<option th:value="0" label="---Select List----"> </option>
+					<option th:each="category:${categoryList}" th:value="${category.categoryName}" th:text="${category.categoryName}"></option>
+				</select>
+			
+			</label> 
+	
+	</div>
+		
+		<div class="catDesc">
+			<label for="productName" class="catLabel">Product Name</label> 
+			<input type="text"  th:field="*{productName}" class="form-controls prodName" id="productName" required="required"> 
+		</div>
+		
+		<div class="catName">
+			<label for="productPrice" class="catLabel">Product Price</label> 
+			<input type="text"  th:field="*{price}" class="form-controls priceInput" id="productPrice" required="required"> 
+		</div>
+		
+		<div class="catDesc">
+			<label for="productStock" class="catLabel">Product Stock</label> 
+			<input type="text"  th:field="*{stock}" class="form-controls prodStock" id="productStock" required="required"> 
+		</div>
+		
+		<div class="catName">
+			<label for="ProductSupplier" class="catLabel">Supplier</label> 
+			<input type="text" th:field="*{supplierId}" class="form-controls supplierInput" id="ProductSupplier" required="required"> 
+		</div>		 
+		
+		<div class="catDesc">
+			<label for="productDesc" class="catLabel">Product Desc</label> 
+			<input type="text"  th:field="*{productDescription}" class="form-controls prodDescInput" id="productDesc" required="required"> <br> <br>
+		</div>
+		
+		<div class="catName">
+			<label for="productImg" class="catLabel">Product Image</label> 
+			<input type="file" th:field="*{productImg}"  class="form-controls" id="productImg" name="productImg"> <br> <br>
+		</div>
+					 
+		<input type="submit" value="Update Product" class="submit">
+	
+	</form>
+
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="fashion.css">
+<title>Category</title>
+</head>
+<body>
+
+<!-- 	insert automatiquement la barre de menu dans la page -->
+
+	<div th:insert="adminHeader :: adminbar"></div> 
+	
+	<h2 class="catg">Category</h2>
+	
+	<form  method="post" th:action="@{/addCategory}" th:object="${category}">
+	
+		<div class="catName">
+			<label for="catNameInput" class="catLabel">Category Name</label> 
+			<input type="text"  th:field="*{categoryName}" class="form-controls" id="catNameInput" required="required"> <br> <br>
+		</div>
+		
+		<div class="catDesc">
+			<label for="catDescInput" class="catLabel">Category  Descr</label> 
+			<input type="text" th:field="*{categoryDescription}" class="form-controls" id="catDescInput" required="required"> <br> <br>
+		</div>		 
+		
+					 
+		<input type="submit" value="Add Category" class="submit">
+	
+	
+	</form>
+	
+	<h1 class="catDB"> All categories in database</h1>
+	
+	<table border="1" style="margin: 0 auto;" class="table">
+           
+             <tr>
+                 <th class="en-tete">Category Id</th>
+                 <th class="en-tete">Category Name</th>
+                 <th class="en-tete">Category Description</th>
+                 <th class="en-tete">Operation</th>
+             </tr>
+         
+             <tr th:if="${categories.empty}">
+                 <td colspan="4" class="neant">No category found in database</td>
+             </tr>
+             
+             <tr th:each="categorie:${categories}" class="catTitle">
+             
+                <td th:text="${categorie.categoryId}">Category Id</td>
+               	<td th:text="${categorie.categoryName}">Category Name</td>
+               	<td th:text="${categorie.categoryDescription}">Category Description</td>
+               		
+               	<td style="text-align: center;">
+         
+               		<a th:href="@{/editCategory/{categoryId}(categoryId=${categorie.categoryId})}"><button class="btnUpdate">EDIT</button></a>
+               		<a th:href="@{/delete/{id}(id=${categorie.categoryId})}"><button class="btnDelete">DELETE</button></a>
+               	
+               	</td>
+             </tr>
+           
+        </table>
+	
+</body>
+</html>

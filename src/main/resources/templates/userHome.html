@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="fashion.css">
+<title>User Home</title>
+</head>
+
+<style>
+
+	*{
+		box-sizing: border-box;
+	}
+
+	body{
+		margin: 0;
+		padding: 0;
+	}
+	
+
+	
+	.productImg{
+ 
+		margin: 5px;
+		border: 1px solid #ccc;
+		width: 290px;
+		margin-left: 10px;
+		float: left;
+	}
+	
+	
+	.productImg  .thumbnail .img{
+	
+		width: 100%;
+		height: 300px;
+		
+	}
+
+	
+	.productDataInfo{
+		background: skyblue;
+		padding: 10px;
+		text-align: center;
+	}
+	
+</style>
+
+<body>
+
+	<div th:insert="userHeader :: userbar"></div>
+
+	<div class="container" th:each="product:${productsList}">
+		
+		<div class="productImg">
+			<a th:href="@{/totalProductDisplay/{id}(id = ${product.productId})}" class="thumbnail">
+				<img alt="Genereic placeholder thumbnail" th:src="@{/images/{id}.jpg(id = ${product.productId})}" class="img">
+			</a>
+			<div class="productDataInfo">
+				<p th:text="${product.productName}"></p>
+				<p th:text="'Price: ' + ${product.price} +' $'"></p>
+				<p th:text="'Stock: ' + ${product.stock}" ></p>
+			</div>
+		</div>
+
+	</div>
+
+</body>
+</html>

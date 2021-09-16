@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- <link rel="stylesheet" type="text/css" href="fashion.css"> -->
+<title>Category</title>
+</head>
+
+<style>
+
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	
+	/* .container{ */
+	/* 	background-color: #c0c0c0; */
+		
+	/* } */
+	
+	.Navbar{
+		
+		background-color: black;
+		justify-content: center;
+		align-items: center;
+		margin-bottom: 20px;
+	}
+	
+	.Navbar-fluid , .Navbar-header, .Nav{
+		
+		display: flex;
+	}
+	
+	.Navbar .Nav li{
+		
+		list-style-type: none;
+	}
+	
+	.Nav .link{
+		display: flex;
+		text-decoration: none;
+		padding: 20px;
+		color: white;
+		text-transform: uppercase;
+	}
+	
+	.link , .Navbar-brand{
+		text-transform: uppercase;
+	}
+	
+	.Nav .link:hover{
+		color: blue;
+	}
+	
+	
+	.Navbar-header{
+		background-color: blue;
+	}
+	
+	.Navbar-header .Navbar-brand{
+		display: flex;
+		text-decoration: none;
+		padding: 20px;
+		color: white;
+	}
+	
+	.btn-log-out{
+	
+	width: 80px;
+	height: 30px;
+	margin-top: 12px;
+	color: white;
+	background: #FF0000;
+	border-radius: 8px;
+}
+
+.btn-log-out:hover{
+	
+		font-style: italic;
+	}
+	
+.welcome{
+	
+		display: flex;
+		text-decoration: none;
+		padding: 10px;
+		margin-left: 450px;
+		margin-right: 20px;
+	}
+	
+	.center_title{
+		
+		margin-top: 150px;
+		text-align: center;
+		color: fuchsia;
+	}
+
+	body .catg{
+	
+		margin-bottom: 15px;
+		text-align: center;
+		text-transform: uppercase;
+		color: blue;
+}
+
+	.catId, .catName, .catDesc{
+		 
+		justify-content: center;
+		align-items: center;
+		margin: 0 130px 20px 130px;
+		padding: 15px;
+		background-color: #D3D3D3;
+		border: 1;
+		height: 15px;
+	}
+
+	
+	.catLabel{
+		
+		margin-left: 0;
+		font-weight: bold;
+	}
+	
+	.form-control{
+		
+		width: 250px;
+		height: 20px;
+		margin-left: 130px;
+	}
+	
+	.formId{
+		border-style: ridge;
+		margin-left: 130px;
+	}
+	
+	.form{
+		margin-left: 105px;
+	}
+	
+	.submit{
+		
+		margin-left:  650px;
+		width: 150px;
+		height: 30px;
+		color: blue;
+		border-radius: 5px;
+		text-transform: uppercase;
+	}
+	
+	.submit:hover{
+		
+		background-color: #0080ff;
+		color: white;
+	}
+
+</style>
+
+<body>
+	
+	<div th:insert="adminHeader :: adminbar"></div>
+	
+	<h2 class="catg">Update Category</h2>
+	
+	<form  method="post" th:action="@{/addCategory}" th:object="${category}">
+	
+		
+		<div class="catId">
+			<label for="catIdInput" class="catLabel">Category Id</label> 
+			<input type="text" th:field="*{categoryId}" class="form-controls formId" readonly="readonly">
+		</div>
+		
+		<div class="catName">
+			<label for="catNameInput" class="catLabel">Category Name</label> 
+			<input type="text"  th:field="*{categoryName}" class="form-controls form" id="catNameInput" required="required"> <br> <br>
+		</div>
+		
+		<div class="catDesc">
+			<label for="catDescInput" class="catLabel">Category  Descr</label> 
+			<input type="text" th:field="*{categoryDescription}" class="form-controls form" id="catDescInput" required="required"> <br> <br>
+		</div>		 
+		
+					 
+		<input type="submit" value="Update Category" class="submit">
+		
+<!-- 		<table class="table" style="margin: 0 auto;" > -->
+	
+<!-- 		<tr>  -->
+<!-- 			<th colspan="2"> -->
+<!-- 				<h2>Category</h2> -->
+<!-- 			</th> -->
+<!-- 		</tr> -->
+		
+<!-- 		<tr>  -->
+<!-- 			<td >Category Name</td> -->
+<!-- 			<td ><input type="text" name="catName" th:field="*{categoryName}"></td> -->
+<!-- 		</tr> -->
+		
+<!-- 		<tr>  -->
+<!-- 			<td >Category Desc</td> -->
+<!-- 			<td ><input type="text" name="catDesc" th:field="*{categoryDescription}"></td> -->
+<!-- 		</tr> -->
+		
+<!-- 		<tr>  -->
+<!-- 			<td colspan="2"><input type="submit" value="Add Category" class="submit"></td> -->
+<!-- 		</tr> -->
+	
+<!-- 	</table>	 -->
+	
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,523 @@
+@charset "UTF-8";
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+/* .container{ */
+/* 	background-color: #c0c0c0; */
+	
+/* } */
+
+.Navbar{
+	
+	background-color: #333;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+	width: 100%;
+	
+}
+
+.btn-log-out{
+	
+	width: 80px;
+	height: 30px;
+	margin-top: 12px;
+	color: white;
+	background: #FF0000;
+	border-radius: 8px;
+}
+
+.btn-log-out:hover{
+	
+	font-style: italic;
+}
+
+
+.Navbar-fluid , .Navbar-header, .Nav{
+	display: flex;
+}
+
+
+.Navbar .Nav li{
+	
+	list-style-type: none;
+
+}
+
+.Nav .link{
+	
+	display: flex;
+	text-decoration: none;
+	padding: 20px;
+	color: white;
+	text-transform: uppercase;
+}
+
+.link , .Navbar-brand{
+	text-transform: uppercase;
+}
+
+.Nav .link:hover{
+	
+	color: blue;
+	
+}
+
+/* sous-menu*/
+
+.Navbar ul ul a{
+	
+	text-decoration: none;
+	padding: 15px 33px;
+	display: block;
+	color: #fff;
+}
+
+.Navbar ul ul a:hover{
+	
+	background: blue;
+	
+}
+
+.Navbar ul{
+	
+	position: relative;
+}
+
+.Navbar ul ul{
+	
+	position: absolute;
+	background-color: #333;
+	visibility: hidden;
+}
+
+.Navbar li:hover ul{
+	
+	visibility: visible;
+}
+
+
+.Navbar-header{
+	background-color: blue;
+}
+
+.Navbar-header .Navbar-brand{
+	display: flex;
+	text-decoration: none;
+	padding: 20px;
+	color: white;
+}
+
+.welcome{
+	
+	display: flex;
+	text-decoration: none;
+	padding: 10px;
+	margin-left: 450px;
+	margin-right: 20px;
+}
+
+/* .wel{ */
+	
+/* 	display: flex; */
+/* 	text-decoration: none; */
+/* 	padding: 20px; */
+/* 	color: #97DFC6; */
+/* 	margin-left: 330px; */
+/* } */
+
+/* .logout{ */
+	
+/* 	display: flex; */
+/* 	text-decoration: none; */
+/* 	padding: 20px; */
+/* 	color: red; */
+/* 	margin-left: 149px; */
+/* 	text-transform: uppercase; */
+/* } */
+
+/* .log{ */
+	
+/* 	display: flex; */
+/* 	text-decoration: none; */
+/* 	padding: 20px; */
+/* 	color: red; */
+/* 	margin-left: 200px; */
+/* 	text-transform: uppercase; */
+/* } */
+
+/* .log:hover, .logout:hover{ */
+	
+/* 	font-style: italic; */
+/* } */
+
+
+.homeContainer{
+	
+/* 	height: 100vh; */
+/* 	background-image:  url("/images/bg-1.jpg"); */
+/* 	background-size: cover; */
+/* 	background-repeat: no-repeat; */
+/* 	background-attachment: fixed; */
+background-color: #edeeef;
+}
+
+.log-reg{
+	
+	background-color: #edeeef;
+}
+
+
+.center_title{
+	
+	margin-top: 50px;
+	text-align: center;
+	color: fuchsia;
+	text-transform: uppercase;
+}
+
+/* ------------------- table properties --------------------*/
+
+body .catDB{
+	
+	margin: 50px 0 30px 0;
+	text-align: center;
+	font-size: 25px;
+	color: blue;
+	text-transform: uppercase;
+}
+
+.table{
+	
+	width:80%;
+/* 	border-spacing: inherit; */
+	border-collapse: collapse;
+/* 	border: hidden; */
+		
+}
+
+.catTitle{
+	color: #0080ff;
+}
+
+.table th, .table td{
+	
+	padding: 5px;
+}
+
+.en-tete{
+	
+	color: blue;
+}
+
+.neant{
+	text-align: center;
+	color: red;
+}
+
+.btnUpdate{
+	
+	width: 100px;
+	height: 30px;
+	color: white;
+	background-color: /*#0080ff*/ green;
+	margin-left: 20px;
+	margin-bottom: 8px;
+	
+	border-radius: 10px;
+}
+
+.btnDelete{
+	
+	width: 100px;
+	height: 30px;
+	color: white;
+	background-color: #ff0000;
+	margin-left: 30px;
+	margin-right: 20px;
+	
+	border-radius: 10px;
+}
+
+.btnPU, .btnPD{
+	
+	margin-left: 5px;
+	margin-right: 5px;
+	
+}
+
+.btnUpdate:hover{
+	
+	color: green;
+	background-color: white;
+}
+
+.btnDelete:hover{
+	
+	color: #ff0000;
+	background-color: white;
+}
+
+/* ------------------- category form --------------------*/
+
+.catg{
+	
+	margin: 40px 0 30px 0;
+	text-align: center;
+	text-transform: uppercase;
+	color: blue;
+}
+
+.catg , body .catDB{
+	
+/* 	background-color: gray; */
+	margin-left: 400px;
+	margin-right: 400px;
+	border-radius: 10px;
+	padding: 7px;
+	
+}
+
+/* .catDB{ */
+	
+/* 	background-color: #80ffff; */
+/* 	margin-left: 400px; */
+/* 	margin-right: 400px; */
+/* 	border-radius: 10px; */
+/* } */
+
+.catName, .catDesc{
+	 
+	justify-content: center;
+	align-items: center;
+	margin: 0 130px 20px 130px;
+	padding: 15px;
+	background-color: #D3D3D3;
+	border: 1;
+	height: 15px;
+}
+
+.catLabel{
+	
+	margin-left: 0;
+	font-weight: bold;
+}
+
+.form-controls{
+	
+	width: 300px;
+	height: 20px;
+	margin-left: 100px;
+	
+}
+
+.selection{
+	
+	margin-left: 135px;
+	height: 20px;
+}
+
+.priceInput, .prodDescInput{
+	
+	margin-left: 105px;
+}
+
+.supplierInput{
+	
+	margin-left: 137px;
+}
+
+
+.submit{
+	
+	margin-left:  650px;
+	width: 130px;
+	height: 30px;
+	color: blue;
+	border-radius: 5px;
+	text-transform: uppercase;
+}
+
+.submit:hover{
+	
+	background-color: #0080ff;
+	color: white;
+}
+
+/*------------------------ Register form page --------------------------*/
+
+.rowR{
+	
+	margin: 50px 450px 0 450px;
+}
+
+.registerTitle{
+	
+	text-align: center;
+	text-transform: uppercase;
+	color: blue;
+	font-weight: bold;
+	
+}
+
+/* .control-label{ */
+	
+/* 	margin: 0 0 0 -75px; */
+/* } */
+
+.inputDataR{
+	
+	width: 430px;
+	height:25px;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+
+.selectField{
+	
+	margin: 0 auto;
+	margin-top: 15px;
+}
+
+.login-button{
+	
+	margin: 20px 0 15px 0;
+	width: 430px;
+	height: 30px;
+	background: blue;
+	color: #fff;
+	border-radius: 15px;
+}
+
+.login-button:hover{
+	
+	font-style: italic;
+}
+
+.login-register:hover{
+	
+	font-style: italic;
+}
+
+/*------------------------ payment form --------------------------*/
+
+.tablePay{
+	
+	width: 80%;
+	border-collapse: collapse;
+	border: hidden;
+}
+
+.tablePay th, .tablePay td{
+	
+	padding: 10px;
+}
+
+.titlePay{
+	
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.valid-cvv{
+	
+	width: 300px;
+	height: 20px;
+	margin-left: 10px;
+}
+
+.input{
+	
+	width: 300px;
+	height: 20px;
+	margin-left: 43px;
+}
+
+.warning1{
+	
+	background-color: #97DFC6;
+}
+
+.bottomName{
+	
+	background:#BBD2E1;
+}
+
+
+.btn-pay{
+	
+	width: 100px;
+	height: 30px;
+	color: white;
+	background-color: green;
+	border-radius: 5px;
+	text-transform: uppercase;
+}
+
+.btn-pay:hover{
+	
+	font-style: italic;
+}
+
+/*------------------------ login form --------------------------*/
+	
+.infoLogin{
+	
+	color: blue;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+.inputData{
+	
+	width: 430px;
+	height:25px;
+	text-align: center;
+	margin-top: 15px;
+}
+
+.containerLogin{
+
+	margin: 70px 420px 0 480px;
+}
+
+.btn-log{
+	
+	margin-left: 100px;
+	margin-top: 20px; 
+	width: 430px;
+	height: 30px;
+	border-radius: 10px;
+	background-color: blue;
+	color: white;
+}
+
+.btn-log:hover{
+	font-style: italic;
+}
+
+.register-div{
+	
+	margin-top: 15px;
+	margin-left: 100px;
+}
+
+.text-info-regsiter{
+	
+	margin-left: 0;
+	
+}
+.text-info-regsiter:hover{
+	
+	font-style: italic;
+}
+
+.error{
+	
+	margin-top: 30px;
+	margin-bottom: 10px;
+}

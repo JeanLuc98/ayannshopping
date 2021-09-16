@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="fashion.css">
+<title>Product</title>
+</head>
+<body class="homeContainer">
+	
+	<div th:insert="adminHeader :: adminbar"></div>  
+	
+	<h2 class="catg">Insert Product</h2>
+	
+	<form  method="post" th:action="@{/insertProduct}" th:object="${product}" enctype="multipart/form-data">
+	
+		<div class="catName">
+			<label for="productCatg" class="catLabel">Category
+			
+				<select name="selection"  class="selection" th:field="*{categoryId}">
+					<option th:value="0" label="---Select List----"> </option>
+					<option th:each="category:${categoryList}" th:value="${category.categoryName}" th:text="${category.categoryName}"></option>
+				</select>
+			
+			</label> 
+		
+<!-- 			<input type="text"  th:field="*{categoryId}" class="form-control" id="productCatg" required="required"> <br> <br> -->
+	</div>
+
+		<div class="catDesc">
+			<label for="productName" class="catLabel">Product Name</label> 
+			<input type="text"  th:field="*{productName}" class="form-controls" id="productName" required="required" > 
+		</div>
+		
+		<div class="catName">
+			<label for="productPrice" class="catLabel">Product Price</label> 
+			<input type="text" th:field="*{price}" class="form-controls priceInput" id="productPrice" required="required" placeholder="0"> 
+		</div>
+		
+		<div class="catDesc">
+			<label for="productStock" class="catLabel">Product Stock</label> 
+			<input type="text" value="0" th:field="*{stock}" class="form-controls" id="productStock" required="required" placeholder="0"> 
+		</div>
+		
+		<div class="catName">
+			<label for="ProductSupplier" class="catLabel">Supplier</label> 
+			<input type="text" th:field="*{supplierId}" class="form-controls supplierInput" id="ProductSupplier" required="required"
+				placeholder="0"> 
+		</div>		 
+		
+		<div class="catDesc">
+			<label for="productDesc" class="catLabel">Product Desc</label> 
+			<input type="text"  th:field="*{productDescription}" class="form-controls prodDescInput" id="productDesc" required="required"> <br> <br>
+		</div>
+		
+		<div class="catName">
+			<label for="productImg" class="catLabel">Product Image</label> 
+			<input type="file" th:field="*{productImg}"  class="form-controls" id="productImg" name="productImg" required="required"> <br> <br>
+		</div>
+					 
+		<input type="submit" value="Insert Product" class="submit">
+	
+	</form>
+	
+	<h1 class="catDB"> All Products in database</h1>
+	
+	<table border="1" style="margin: 0 auto;" class="table">
+           
+             <tr>
+                 <th class="en-tete">Product Id</th>
+                 <th class="en-tete">Product Category</th>
+                 <th class="en-tete">Product Name</th>
+                 <th class="en-tete">Product Price</th>
+                 <th class="en-tete">Product Stock</th>
+                 <th class="en-tete">Product Supplier Id</th>
+                 <th class="en-tete">Product Description</th>
+                 <th class="en-tete">Operation</th>
+             </tr>
+         
+             <tr th:if="${products.empty}">
+                 <td colspan="8" class="neant">No product found in database</td>
+             </tr>
+             
+             <tr th:each="product:${products}" class="catTitle">
+             
+                <td th:text="${product.productId}">Product Id</td>
+               	<td th:text="${product.categoryId}">Product Category</td>
+               	<td th:text="${product.productName}">Product Name</td>
+               	<td th:text="${product.price}">Product Price</td>
+               	<td th:text="${product.stock}">Product Stock</td>
+               	<td th:text="${product.supplierId}">Product Supplier Id</td>
+               	<td th:text="${product.productDescription}">Product Description</td>
+               		
+               	<td style="text-align: center;">
+         
+             	  	<a th:href="@{/editProduct/{id}(id=${product.productId})}"><button class="btnUpdate btnPU">EDIT</button></a>
+               		<a th:href="@{/deleteProduct/{id}(id=${product.productId})}"><button class="btnDelete btnPD">DELETE</button></a>
+               	
+               	</td>
+             </tr>
+           
+        </table>
+	
+</body>
+</html>
